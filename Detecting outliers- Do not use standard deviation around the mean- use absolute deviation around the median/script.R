@@ -11,8 +11,8 @@ boxplot(raw.data$sales_in_inr)
 length(boxplot(raw.data$sales_in_inr)$out)         # 1 outlier
 
 # Outlier detection with proposed approach in paper
-M <- median(raw.data$sales_in_inr)                 # median
-md <- mad(raw.data$sales_in_inr)                   # Mean absolute deviance
+M <- median(raw.data$sales_in_inr, na.rm = T)      # median
+md <- mad(raw.data$sales_in_inr, na.rm = T)        # mean absolute deviance
 low_outlier <-  M - (3*md)                         # Low outlier critical value
 high_outlier <- M + (3*md)                         # High outlier critical value
 
